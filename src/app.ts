@@ -65,9 +65,9 @@ class App {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
-    this.app.set('views', path.join(__dirname, 'views'));
+    this.app.set('views', path.join(__dirname, '../lib/views'));
     this.app.set('view engine', 'ejs');
-    this.app.use(express.static(path.join(__dirname, 'public')));
+    this.app.use(express.static(path.join(__dirname, '../lib/public')));
   }
 
   private initializeRoutes(routes: Routes[]) {

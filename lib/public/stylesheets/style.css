@@ -1,0 +1,30 @@
+body {
+    background: #000000;
+    margin: 0;
+}
+
+h1 {
+    color: white;
+}
+
+.nav-components {
+    width: 25%;
+    height: 32px;
+    background: rgb(68, 56, 102);
+    border-radius: 0px 0px 10px 10px;
+}
+
+.nav-components a {
+
+    position: relative;
+    top: 2px;
+}
+
+.nav-components a:hover {
+    color: #666;
+    transition: 0.3s;
+}
+
+.nav-components span {
+    color: transparent;
+}
