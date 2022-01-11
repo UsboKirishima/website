@@ -12,6 +12,10 @@ import swaggerUi from 'swagger-ui-express';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import path from 'path';
+import debug from 'debug';
+import session from 'express-session'
+
 
 class App {
   public app: express.Application;
@@ -48,9 +52,22 @@ class App {
     this.app.use(hpp());
     this.app.use(helmet());
     this.app.use(compression());
+    this.app.use(session({
+      secret: 'some random secret',
+      cookie: {
+          maxAge: 60000 * 60 * 24
+      },
+      saveUninitialized: false,
+      resave: false,
+      name: 'website',
+    }));
+    
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(cookieParser());
+    this.app.set('views', path.join(__dirname, 'views'));
+    this.app.set('view engine', 'ejs');
+    this.app.use(express.static(path.join(__dirname, 'public')));
   }
 
   private initializeRoutes(routes: Routes[]) {
