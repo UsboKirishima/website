@@ -83,4 +83,10 @@ body {
 
 .socials a {
     color: white;
+    transition: 0.3s;
+}
+
+.socials a:hover {
+    color: #666;
+    transition: 0.4s;
 }
