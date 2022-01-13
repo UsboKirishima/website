@@ -14,7 +14,7 @@ import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
 import path from 'path';
 import debug from 'debug';
-import session from 'express-session'
+import session from 'express-session';
 
 
 class App {
